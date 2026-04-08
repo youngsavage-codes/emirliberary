@@ -1,0 +1,81 @@
+export default {
+  name: 'book',
+  title: 'Book',
+  type: 'document',
+  fields: [
+    {
+      name: 'title',
+      title: 'Book Title',
+      type: 'string',
+      validation: (Rule: { required: () => any; }) => Rule.required(),
+    },
+    {
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: { source: 'title', maxLength: 96 },
+      validation: (Rule: { required: () => any; }) => Rule.required(),
+    },
+    {
+      name: 'author',
+      title: 'Author',
+      type: 'string',
+      validation: (Rule: { required: () => any; }) => Rule.required(),
+    },
+    {
+      name: 'coverImage',
+      title: 'Cover Image',
+      type: 'image',
+      options: { hotspot: true },
+    },
+    {
+      name: 'summary',
+      title: 'Summary',
+      type: 'text',
+    },
+    {
+      name: 'file',
+      title: 'Book File (PDF)',
+      type: 'file',
+      options: { accept: '.pdf' },
+    },
+    {
+      name: 'category',
+      title: 'Category',
+      type: 'reference',
+      to: [{ type: 'category' }],
+    },
+    {
+      name: 'publishedYear',
+      title: 'Published Year',
+      type: 'number',
+    },
+    {
+      name: 'reviews',
+      title: 'Reviews',
+      type: 'array',
+      of: [{ type: 'reference', to: [{ type: 'review' }] }],
+    },
+    {
+      name: 'averageRating',
+      title: 'Average Rating',
+      type: 'number',
+      readOnly: true,
+      description: 'Automatically calculated from all ratings',
+      initialValue: 0,
+    },
+    {
+      name: 'tags',
+      title: 'Tags',
+      type: 'array',
+      of: [{ type: 'string' }],
+      options: { layout: 'tags' },
+    },
+    {
+      name: 'featured',
+      title: 'Featured Book',
+      type: 'boolean',
+      initialValue: false,
+    },
+  ],
+};
