@@ -77,7 +77,7 @@ export default function Home() {
       {/* ================= QUOTES SECTION ================= */}
       <WisdomSection />
 
-      <PhotoGallery title="Our Pictures" images={sampleImages} />
+      <PhotoGallery title="Our Gallery" images={sampleImages} />
 
             {/* ================= ABOUT SECTION ================= */}
       <section className="py-20 max-w-5xl mx-auto px-6 text-center">

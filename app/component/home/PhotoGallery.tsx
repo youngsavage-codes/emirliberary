@@ -16,7 +16,7 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
   return (
-    <section className="py-10 px-6 md:px-14 max-w-7xl mx-auto">
+    <section className="py-10 px-6 md:px-14 mx-auto">
       {/* Title */}
       {title && (
         <h2 className="text-3xl font-semibold mb-8 text-gray-800 dark:text-gray-100 text-center">
@@ -33,13 +33,13 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: index * 0.05 }}
             viewport={{ once: true }}
-            className="break-inside-avoid cursor-pointer overflow-hidden rounded-2xl relative group"
+            className="break-inside-avoid cursor-pointer overflow-hidden relative group"
             onClick={() => setSelectedImage(index)}
           >
             <img
               src={image.src}
               alt={image.alt || `Gallery Image ${index + 1}`}
-              className="w-full h-auto rounded-2xl object-cover transition-transform duration-300 group-hover:scale-105"
+              className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
             />
             {image.caption && (
               <div className="absolute bottom-0 left-0 right-0 bg-black/50 text-white text-center text-sm py-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
